@@ -4,7 +4,8 @@ const rfc3339Matcher =
   /^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2}):(\d{2})(\.\d{1,9})?((?:[+-]\d{2}:\d{2})|Z)$/;
 
 function padded(integer: number, length = 2): string {
-  return integer.toString().padStart(length, "0");
+  const filled = "00000" + integer.toString();
+  return filled.substring(filled.length - length);
 }
 
 export function fromRfc3339(str: string): Date {
